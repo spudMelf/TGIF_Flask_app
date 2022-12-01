@@ -1,13 +1,12 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
-import pickle
 import tensorflow as tf
 import math
 
 # Create flask app
 flask_app = Flask(__name__, static_folder='staticFiles')
-model = pickle.load(open("model.pkl", "rb"))
-tf_model = tf.keras.models.load_model('akin/model')
+
+tf_model = tf.keras.models.load_model('./NLP_Model')
 
 @flask_app.route("/")
 def Home():
@@ -37,4 +36,4 @@ def predict():
     return render_template("index.html", prediction_text = "The model computes that the bill will pass with likelihood:  {}".format(y_new_text))
 
 if __name__ == "__main__":
-    flask_app.run(debug=True)
+    flask_app.run(debug=True, port=4000)
