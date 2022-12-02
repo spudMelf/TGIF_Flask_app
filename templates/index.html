@@ -17,9 +17,7 @@
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post" size="400">
-    	<textarea type="text" name="Penis_Length" placeholder="Enter your bill text here" required="required"/>
-      </textarea>
-        <br>
+    	<textarea type="text" name="Penis_Length" placeholder="Enter your bill text here" required="required"></textarea>
         <br>
         <button type="submit" class="btn btn-primary btn-block btn-large button button1">Predict</button>
     </form>
